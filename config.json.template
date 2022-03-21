@@ -1,0 +1,5 @@
+{
+    "flood-url": "http://localhost:3000/api",
+    "flood-username": "User",
+    "flood-password": "Pass"
+}
