@@ -11,6 +11,7 @@
   "dependencies": {
     "chart.js": "^3.7.1",
     "chartjs-adapter-moment": "^1.0.0",
+    "chartjs-plugin-zoom": "^1.2.0",
     "cron": "^1.8.2",
     "express": "^4.17.3",
     "flood-api": "^1.1.5",

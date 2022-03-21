@@ -126,6 +126,10 @@ web.get('/dist/js/chartjs-adapter-moment.min.js', (req, res) => {
     res.sendFile(__dirname + '/node_modules/chartjs-adapter-moment/dist/chartjs-adapter-moment.min.js');
 });
 
+web.get('/dist/js/chartjs-plugin-zoom.min.js', (req, res) => {
+    res.sendFile(__dirname + '/node_modules/chartjs-plugin-zoom/dist/chartjs-plugin-zoom.min.js');
+});
+
 web.listen(port, () => {
     console.log(`:: Express listening on port ${port}`)
 });

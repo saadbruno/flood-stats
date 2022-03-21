@@ -35,6 +35,31 @@ function drawChart(importedData) {
             plugins: {
                 legend: {
                     display: false
+                },
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'xy',
+                    },
+                    zoom: {
+                        animation: {
+                            duration: 0
+                        },
+                        wheel: {
+                            enabled: true,
+                        },
+                        pinch: {
+                            enabled: true
+                        },
+                        drag: {
+                            enabled: true,
+                            borderColor: 'rgb(54, 162, 235)',
+                            borderWidth: 1,
+                            backgroundColor: 'rgba(54, 162, 235, 0.3)',
+                            modifierKey: 'ctrl'
+                        },
+                        mode: 'xy',
+                    }
                 }
             },
             scales: {
