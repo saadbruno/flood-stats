@@ -131,7 +131,7 @@ web.listen(port, () => {
 });
 
 // cron that gets the data from Flood every hour
-var job = new CronJob('* * * * * *', function() {
+var job = new CronJob('0 0 */1 * * *', function() {
     getTorrentData();
   }, null, true, 'Etc/UTC');
   job.start();
