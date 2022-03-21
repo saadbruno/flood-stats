@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "flood-api": "^1.1.5"
+    "flood-api": "^1.1.5",
+    "sqlite3": "github:mapbox/node-sqlite3#593c9d"
   }
 }

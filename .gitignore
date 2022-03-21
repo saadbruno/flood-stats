@@ -1,5 +1,7 @@
 config.json
 other/
+torrent-data.sqlite
+torrent-data.sqlite-journal
 
 # Logs
 logs
