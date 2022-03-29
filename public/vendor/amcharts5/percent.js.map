@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://@amcharts/amcharts5/./tmp/webpack/percent.js"],"names":["am5percent"],"mappings":"6nBACO,MAAMA,EAAa,I","file":"percent.js","sourcesContent":["import * as m from \"./../../dist/es2015/percent.js\";\nexport const am5percent = m;"],"sourceRoot":""}

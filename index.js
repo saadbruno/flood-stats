@@ -113,22 +113,6 @@ web.get('/api/torrent', (req, res) => {
 
 });
 
-web.get('/dist/js/chart.min.js', (req, res) => {
-    res.sendFile(__dirname + '/node_modules/chart.js/dist/chart.min.js');
-});
-
-web.get('/dist/js/moment.js', (req, res) => {
-    res.sendFile(__dirname + '/node_modules/moment/dist/moment.js');
-});
-
-web.get('/dist/js/chartjs-adapter-moment.min.js', (req, res) => {
-    res.sendFile(__dirname + '/node_modules/chartjs-adapter-moment/dist/chartjs-adapter-moment.min.js');
-});
-
-web.get('/dist/js/chartjs-plugin-zoom.min.js', (req, res) => {
-    res.sendFile(__dirname + '/node_modules/chartjs-plugin-zoom/dist/chartjs-plugin-zoom.min.js');
-});
-
 web.get('/sample.json', (req, res) => {
     res.sendFile(__dirname + '/other/chartjs-sample.json');
 });

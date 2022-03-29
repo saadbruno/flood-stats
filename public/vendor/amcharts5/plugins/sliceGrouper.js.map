@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://@amcharts/amcharts5/./tmp/webpack/plugins/sliceGrouper.js"],"names":["am5plugins_sliceGrouper"],"mappings":"yOACO,MAAMA,EAA0B,I","file":"plugins/sliceGrouper.js","sourcesContent":["import * as m from \"./../../../dist/es2015/plugins/sliceGrouper.js\";\nexport const am5plugins_sliceGrouper = m;"],"sourceRoot":""}

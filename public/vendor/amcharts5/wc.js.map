@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://@amcharts/amcharts5/./tmp/webpack/wc.js"],"names":["am5wc"],"mappings":"kQACO,MAAMA,EAAQ,I","file":"wc.js","sourcesContent":["import * as m from \"./../../dist/es2015/wc.js\";\nexport const am5wc = m;"],"sourceRoot":""}
