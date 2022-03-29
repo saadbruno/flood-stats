@@ -9,6 +9,7 @@
 //     tension: 0.1
 //   }]
 // };
+// fetch("/sample.json")
 fetch("/api/torrent")
     .then(function (response) {
         return response.json();
