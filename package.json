@@ -16,6 +16,7 @@
     "express": "^4.17.3",
     "flood-api": "^1.1.5",
     "moment": "^2.29.1",
+    "seedrandom": "^3.0.5",
     "sqlite3": "github:mapbox/node-sqlite3#593c9d"
   }
 }

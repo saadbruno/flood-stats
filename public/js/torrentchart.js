@@ -1,21 +1,10 @@
-// const labels = Utils.months({count: 7});
-// const data = {
-//   labels: labels,
-//   datasets: [{
-//     label: 'My First Dataset',
-//     data: [65, 59, 80, 81, 56, 55, 40],
-//     fill: false,
-//     borderColor: 'rgb(75, 192, 192)',
-//     tension: 0.1
-//   }]
-// };
 // fetch("/sample.json")
-fetch("/api/torrent")
+fetch("/api/torrent/relative")
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
+        // console.log(data);
         drawChart(data);
     });
 
@@ -34,6 +23,17 @@ function drawChart(importedData) {
             },
             parsing: false,
             plugins: {
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function(context) {
+                            if (context.parsed.y == 0) {
+                                return;
+                            }
+                            return [`${context.parsed.y} MB - ${context.dataset.label}`]
+                        }
+                    }
+                },
                 legend: {
                     display: false
                 },
@@ -69,9 +69,16 @@ function drawChart(importedData) {
                     time: {
                         displayFormats: {
                             quarter: 'MMM YYYY'
-                        }
+                        },
+                        minUnit: 'day'
                     }
-                }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'MB'
+                      }
+                  }
             }
         }
     };
