@@ -76,6 +76,8 @@ web.get('/api/torrent', (req, res) => {
                 return prev;
             }, Object.create(null));
 
+            // console.log(group);
+
             var result = [];
 
             // for each of the keys inside the newly created group
@@ -95,13 +97,10 @@ web.get('/api/torrent', (req, res) => {
                 for (let index = 0; index < value.length; index++) {
                     // console.log(value[index].timestamp);
 
-                    // we only add it if it's higher than 0
-                    if (value[index].upTotal > 0) {
-                        temp.data[index] = { "x": value[index].timestamp, "y": value[index].upTotal / 1074000000};
-                    }
+                    temp.data[index] = { "x": value[index].timestamp, "y": value[index].upTotal / 1074000000 };
 
                 }
-                
+
                 // add them to the final result array
                 result.push(temp);
 
@@ -130,12 +129,16 @@ web.get('/dist/js/chartjs-plugin-zoom.min.js', (req, res) => {
     res.sendFile(__dirname + '/node_modules/chartjs-plugin-zoom/dist/chartjs-plugin-zoom.min.js');
 });
 
+web.get('/sample.json', (req, res) => {
+    res.sendFile(__dirname + '/other/chartjs-sample.json');
+});
+
 web.listen(port, () => {
     console.log(`:: Express listening on port ${port}`)
 });
 
 // cron that gets the data from Flood every hour
-var job = new CronJob('0 0 */1 * * *', function() {
+var job = new CronJob('0 0 0 * * *', function () {
     getTorrentData();
-  }, null, true, 'Etc/UTC');
-  job.start();
+}, null, true, 'Etc/UTC');
+job.start();
