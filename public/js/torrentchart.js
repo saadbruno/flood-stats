@@ -16,21 +16,25 @@ function drawChart(importedData) {
             datasets: importedData
         },
         options: {
+            spanGaps: true,
+            animation: false,
+            parsing: false,
+            responsive: true,
+            maintainAspectRatio: false,
             interaction: {
                 intersect: false,
                 mode: 'nearest',
                 axis: 'xy'
             },
-            parsing: false,
             plugins: {
                 tooltip: {
                     enabled: true,
                     callbacks: {
-                        label: function(context) {
+                        label: function (context) {
                             if (context.parsed.y == 0) {
                                 return;
                             }
-                            return [`${context.parsed.y} MB - ${context.dataset.label}`]
+                            return [`${context.parsed.y} MB - ${context.dataset.label.substring(0, 50)}`]
                         }
                     }
                 },
@@ -77,8 +81,16 @@ function drawChart(importedData) {
                     title: {
                         display: true,
                         text: 'MB'
-                      }
-                  }
+                    }
+                }
+            },
+            elements: {
+                point: {
+                    radius: 0
+                },
+                line: {
+                    width: 1
+                }
             }
         }
     };

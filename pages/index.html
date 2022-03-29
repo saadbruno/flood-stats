@@ -14,13 +14,45 @@
     <script src="https://momentjs.com/downloads/moment.js?v=2.29.1"></script>
     <script src="/dist/js/chartjs-adapter-moment.min.js?v=1.0.0"></script>
     <script src="/dist/js/chartjs-plugin-zoom.min.js?v=1.2.0"></script>
+    <style>
+        main {
+            background-color: #1c2432;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: white;
+            margin-left: 25px;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 99vw;
+            flex-shrink: 1;
+            flex-grow: 1;
+        }
+    </style>
 
 </head>
 
 <body>
-    Torrent history
-    <canvas id="myChart"></canvas>
-
+    <main>
+        <h1>
+            Flood upload history (relative to previous day)
+        </h1>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </main>
     <script src="/js/torrentchart.js"></script>
 </body>
 

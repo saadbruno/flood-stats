@@ -13,10 +13,10 @@ function getRandomColor(seed) {
     let color = [];
     for (let i = 0; i < 3; i++) {
         var myrng = seedrandom(seed + i);
-        color.push(Math.floor(myrng.quick() * 128 * (i+1)))
+        color.push(myrng.quick());
     }
-    console.log(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
-    return `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+    // console.log(`rgb(${color[0]}, ${color[1]}, ${color[2]})`);
+    return `hsl(${color[0]*360}deg, ${color[1]*30+70}%, ${color[2]*30+40}%)`;
 }
 
 // this functions grabs the torrent names and upload totals from Flood
@@ -157,8 +157,8 @@ web.get('/api/torrent/relative', (req, res) => {
                     "label": group[key][0].name,
                     "data": [],
                     "borderColor": color,
-                    "borderWidth": 2,
-                    "pointRadius": 2
+                    "backgroundColor": color,
+                    "borderWidth": 2
                 };
 
                 // now we loop through each of the values inside the key
