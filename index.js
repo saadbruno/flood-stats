@@ -165,9 +165,13 @@ web.get('/api/torrent/relative', (req, res) => {
                 for (let index = 0; index < value.length; index++) {
                     // console.log(value[index].timestamp);
 
+                    let previous = index > 0 ? value[index-1].upTotal : 0; // account for first day, which index -1 doesn't exist.
+
                     // the Y value here is calculated by subtracting the previous upTotal from the current one, to get the difference.
-                    // We also use Math.max(0, index-1), cause for the first upTotal, the index would be -1, which is no good.
-                    temp.data[index] = { "x": value[index].timestamp, "y": Math.round((value[index].upTotal - value[Math.max(0, index-1)].upTotal) / 1049000) };
+                    temp.data[index] = {
+                        "x": value[index].timestamp,
+                        "y": Math.round((value[index].upTotal - previous) / 1049000)
+                    };
 
                 }
 
