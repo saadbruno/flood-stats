@@ -69,6 +69,7 @@ function drawChart(importedData) {
             },
             scales: {
                 x: {
+                    min: new Date().getTime() - 604800000, // set default zoom to 1 week
                     type: 'time',
                     time: {
                         displayFormats: {
