@@ -98,8 +98,8 @@ web.get('/api/torrent/absolute', (req, res) => {
                     "label": group[key][0].name,
                     "data": [],
                     "borderColor": color,
-                    "borderWidth": 3,
-                    "pointRadius": 2
+                    "backgroundColor": color,
+                    "borderWidth": 2
                 };
 
                 // now we loop through each of the values inside the key

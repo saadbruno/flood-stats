@@ -1,5 +1,11 @@
 // fetch("/sample.json")
-fetch("/api/torrent/relative")
+
+const urlParams = new URLSearchParams(window.location.search);
+const type = urlParams.get('type');
+
+let url = type == "absolute" ? "/api/torrent/absolute" : "/api/torrent/relative";
+
+fetch(url)
     .then(function (response) {
         return response.json();
     })
