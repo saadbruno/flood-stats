@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://@amcharts/amcharts5/./tmp/webpack/hierarchy.js"],"names":["am5hierarchy"],"mappings":"mvBACO,MAAMA,EAAe,I","file":"hierarchy.js","sourcesContent":["import * as m from \"./../../dist/es2015/hierarchy.js\";\nexport const am5hierarchy = m;"],"sourceRoot":""}

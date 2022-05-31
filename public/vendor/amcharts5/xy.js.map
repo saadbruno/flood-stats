@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://@amcharts/amcharts5/./tmp/webpack/xy.js"],"names":["am5xy"],"mappings":"6/CACO,MAAMA,EAAQ,I","file":"xy.js","sourcesContent":["import * as m from \"./../../dist/es2015/xy.js\";\nexport const am5xy = m;"],"sourceRoot":""}

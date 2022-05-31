@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://@amcharts/amcharts5/./tmp/webpack/flow.js"],"names":["am5flow"],"mappings":"gxBACO,MAAMA,EAAU,I","file":"flow.js","sourcesContent":["import * as m from \"./../../dist/es2015/flow.js\";\nexport const am5flow = m;"],"sourceRoot":""}
