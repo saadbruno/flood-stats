@@ -8,24 +8,52 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
-    <script src="/vendor/amcharts5/index.js"></script>
-    <script src="/vendor/amcharts5/xy.js"></script>
-    <script src="/vendor/amcharts5/themes/Animated.js"></script>
-    <script src="/js/torrent2.js"></script>
-
+    <script src="/dist/js/chart.min.js?v=3.7.1"></script>
+    <!-- <script src="/dist/js/moment.js?v=2.29.1"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://momentjs.com/downloads/moment.js?v=2.29.1"></script>
+    <script src="/dist/js/chartjs-adapter-moment.min.js?v=1.0.0"></script>
+    <script src="/dist/js/chartjs-plugin-zoom.min.js?v=1.2.0"></script>
     <style>
-        #chartdiv {
-            width: 100%;
-            height: 90vh;
-            display: block;
+        main {
+            background-color: #1c2432;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: white;
+            margin-left: 25px;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 99vw;
+            flex-shrink: 1;
+            flex-grow: 1;
         }
     </style>
 
 </head>
 
 <body>
-    Torrent history
-    <id id="chartdiv"></id>
+    <main>
+        <h1>
+            Flood upload history (relative to previous day)
+        </h1>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </main>
+    <script src="/js/torrentchart.js"></script>
 </body>
 
 </html>

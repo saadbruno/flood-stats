@@ -1,21 +1,10 @@
-// const labels = Utils.months({count: 7});
-// const data = {
-//   labels: labels,
-//   datasets: [{
-//     label: 'My First Dataset',
-//     data: [65, 59, 80, 81, 56, 55, 40],
-//     fill: false,
-//     borderColor: 'rgb(75, 192, 192)',
-//     tension: 0.1
-//   }]
-// };
 // fetch("/sample.json")
-fetch("/api/torrent")
+fetch("/api/torrent/relative")
     .then(function (response) {
         return response.json();
     })
     .then(function (data) {
-        console.log(data);
+        // console.log(data);
         drawChart(data);
     });
 
@@ -27,13 +16,28 @@ function drawChart(importedData) {
             datasets: importedData
         },
         options: {
+            spanGaps: true,
+            animation: false,
+            parsing: false,
+            responsive: true,
+            maintainAspectRatio: false,
             interaction: {
                 intersect: false,
                 mode: 'nearest',
                 axis: 'xy'
             },
-            parsing: false,
             plugins: {
+                tooltip: {
+                    enabled: true,
+                    callbacks: {
+                        label: function (context) {
+                            if (context.parsed.y == 0) {
+                                return;
+                            }
+                            return [`${context.parsed.y} MB - ${context.dataset.label.substring(0, 50)}`]
+                        }
+                    }
+                },
                 legend: {
                     display: false
                 },
@@ -65,12 +69,28 @@ function drawChart(importedData) {
             },
             scales: {
                 x: {
+                    min: new Date().getTime() - 604800000, // set default zoom to 1 week
                     type: 'time',
                     time: {
                         displayFormats: {
                             quarter: 'MMM YYYY'
-                        }
+                        },
+                        minUnit: 'day'
                     }
+                },
+                y: {
+                    title: {
+                        display: true,
+                        text: 'MB'
+                    }
+                }
+            },
+            elements: {
+                point: {
+                    radius: 0
+                },
+                line: {
+                    width: 1
                 }
             }
         }
