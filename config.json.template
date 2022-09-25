@@ -2,5 +2,7 @@
     "flood-url": "http://localhost:3001/api",
     "flood-username": "User",
     "flood-password": "Pass",
-    "port": 3000
+    "port": 3000,
+    "cron": "0 0 * * *",
+    "cron-timezone": "Etc/UTC"
 }

@@ -8,6 +8,19 @@ var sqlite3 = require('sqlite3').verbose();
 var db = new sqlite3.Database('./torrent-data.sqlite');
 var CronJob = require('cron').CronJob;
 
+const cronSched = config['cron'] ? config['cron'] : "0 0 * * *"; // if there's a cron schedule set in the config, we use that, otherwise we default to midnight
+const cronTz = config['cron-timezone'] ? config['cron-timezone'] : "Etc/UTC"; // if there's a cron timezone set in the config, we use that, otherwise we default to Etc/UTC
+
+console.log(`======= FLOOD STATS =======\n
+Using:\n
+:: Flood address:  ${config['flood-url']}
+:: Flood username: ${config['flood-username']}
+:: Web port:       ${port}
+:: Cron:           ${cronSched}
+:: Timezone:       ${cronTz}
+
+`)
+
 // generates a random rgb color, based on a seed
 function getRandomColor(seed) {
     let color = [];
@@ -22,7 +35,7 @@ function getRandomColor(seed) {
 // this functions grabs the torrent names and upload totals from Flood
 async function getTorrentData() {
 
-    console.log(':: Getting data from Flood');
+    console.log(':: Getting Torrent data from Flood');
 
     var timestamp = Date.now();
 
@@ -65,7 +78,7 @@ web.get('/', (req, res) => {
 
 web.get('/api/torrent/absolute', (req, res) => {
 
-    console.log("getting api");
+    console.log("Requesting data from local API");
     db.serialize(function () {
 
         // const sample = require('./other/our-api-sample.json');
@@ -124,7 +137,7 @@ web.get('/api/torrent/absolute', (req, res) => {
 
 web.get('/api/torrent/relative', (req, res) => {
 
-    console.log("getting api");
+    console.log("Requesting data from local API");
     db.serialize(function () {
 
         // const sample = require('./other/our-api-sample.json');
@@ -211,8 +224,9 @@ web.listen(port, () => {
     console.log(`:: Express listening on port ${port}`)
 });
 
-// cron that gets the data from Flood every hour
-var job = new CronJob('0 0 0 * * *', function () {
+// cron that gets the data from Flood
+var job = new CronJob(`0 ${cronSched}`, function () {
+    console.log(":: Running cron");
     getTorrentData();
-}, null, true, 'Etc/UTC');
+}, null, true, cronTz);
 job.start();

@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
+    <title>Flood Stats</title>
+    <link rel="icon" type="image/x-icon" href="/img/flood-stats-icon.svg">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="">
@@ -34,6 +35,14 @@
             margin-left: 25px;
         }
 
+        h1 img {
+            display: inline;
+            width: 45px;
+            height: 45px;
+            position: relative;
+            top: 9px;
+        }
+
         .chart-container {
             position: relative;
             width: 99vw;
@@ -47,6 +56,7 @@
 <body>
     <main>
         <h1>
+            <img src="/img/flood-stats-icon.svg" alt="icon" />
             Flood upload history (relative to previous day)
         </h1>
         <div class="chart-container">
