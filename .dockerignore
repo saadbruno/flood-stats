@@ -1,0 +1,6 @@
+config.json
+other/
+torrent-data.sqlite
+torrent-data.sqlite-journal
+node_modules
+npm-debug.log

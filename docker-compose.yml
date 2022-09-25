@@ -1,0 +1,10 @@
+version: '3.5'
+services:
+  flood-stats:
+    build: .
+    image: saadbruno/flood-stats:latest
+    volumes:
+      - ./config.json:/usr/src/app/config.json:ro
+      - ./torrent-data.sqlite:/usr/src/app/torrent-data.sqlite
+    ports:
+      - 3000:3000
